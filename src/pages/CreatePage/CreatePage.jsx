@@ -1,22 +1,22 @@
 import React from 'react';
 import {useState} from 'react';
+import { addQuestion } from '../../utilities/questions-api'
 
-export default function CreatePage({user}) {
+export default function CreatePage() {
 
     const [question, setQuestion] = useState({
-        user: {user},
         question: '',
         language: '',
         company: '',
     })
-
     function handleChange(evt){
         setQuestion({...question, [evt.target.name]: evt.target.value });
     }
 
     async function handleSubmit(evt) {
         evt.preventDefault();
-        console.log('this is question: ', question)
+        quest = addQuestion(question)
+
     }
     return (
         <div className='container'>

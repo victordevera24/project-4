@@ -4,7 +4,7 @@ const questionsCtrl = require('../../controllers/api/questions');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
-router.post('/api/questions', ensureLoggedIn, questionsCtrl.create);
+router.post('/create', ensureLoggedIn, questionsCtrl.create);
 
 
 module.exports = router;
