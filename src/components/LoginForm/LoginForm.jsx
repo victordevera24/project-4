@@ -25,7 +25,7 @@ export default function LoginForm({ setUser }) {
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
-      history.push('/orders/new');
+      history.push('/home');
     } catch {
       setError('Log In Failed - Try Again');
     }

@@ -6,5 +6,6 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 router.post('/create', ensureLoggedIn, questionsCtrl.create);
 
+router.get('/', ensureLoggedIn, questionsCtrl.index);
 
 module.exports = router;

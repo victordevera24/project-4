@@ -1,22 +1,26 @@
 import React from 'react';
 import {useState} from 'react';
 import { addQuestion } from '../../utilities/questions-api'
+import {useHistory} from 'react-router-dom';
+
 
 export default function CreatePage() {
 
     const [question, setQuestion] = useState({
         question: '',
-        language: '',
+        language: 'javascript',
         company: '',
     })
     function handleChange(evt){
         setQuestion({...question, [evt.target.name]: evt.target.value });
     }
 
+    const history = useHistory();
+
     async function handleSubmit(evt) {
         evt.preventDefault();
-        quest = addQuestion(question)
-
+        addQuestion(question)
+        history.push('/home');
     }
     return (
         <div className='container'>

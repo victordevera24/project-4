@@ -2,6 +2,7 @@ const Question = require('../../models/question');
 
 module.exports = {
     create,
+    index
 }
 
 async function create(req, res){
@@ -12,4 +13,9 @@ async function create(req, res){
     } catch (err) {
         res.status(400).json(err)
     }
+}
+
+async function index(req,res) {
+    const quests = await Question.find({}).sort('createAt');
+    res.json(quests)
 }
