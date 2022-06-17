@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { getUser } from '../../utilities/users-service';
@@ -11,9 +11,23 @@ import LanguagesPage from '../LanguagesPage/LanguagesPage'
 import SoftSkillsPage from '../SoftSkillsPage/SoftSkillsPage'
 import CompanysPage from '../CompanysPage/CompanysPage'
 import CreatePage from '../CreatePage/CreatePage'
+import QuestionDetail from '../../components/QuestionDetail/QuestionDetail'
+import * as questionsAPI from '../../utilities/questions-api'
+
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [questions, setQuestions]= useState([]);
+
+  useEffect(function() {
+    async function getQuestions() {
+      const quests = await questionsAPI.getAll();
+      setQuestions(quests)
+    }
+      getQuestions()
+  }, []);
+
 
   return (
     <main className="App">
@@ -30,7 +44,7 @@ export default function App() {
             </Route>
 
             <Route path="/home">
-              <HomePage />
+              <HomePage questions={questions}/>
             </Route> 
             
             <Route path="/languages">
@@ -47,6 +61,10 @@ export default function App() {
 
             <Route path="/create">
               <CreatePage user={user}/>
+            </Route> 
+
+            <Route path="/question/:id">
+              <QuestionDetail questions={questions}/>
             </Route> 
             
             <Redirect to="/home" />
