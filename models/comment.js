@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
-    question: { type: Schema.Types.ObjectId, ref: 'Question'},
+    user: { type: String, required: true },
+    question: { type: String, required: true},
     comment: { type: String, required: true },
     likes: { type: Number, default: 0}
 }, {
