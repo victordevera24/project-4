@@ -3,8 +3,6 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage'
 import LanguagesPage from '../LanguagesPage/LanguagesPage'
@@ -13,7 +11,6 @@ import CompanysPage from '../CompanysPage/CompanysPage'
 import CreatePage from '../CreatePage/CreatePage'
 import QuestionDetail from '../../components/QuestionDetail/QuestionDetail'
 import * as questionsAPI from '../../utilities/questions-api'
-
 
 
 export default function App() {
@@ -28,6 +25,8 @@ export default function App() {
       getQuestions()
   }, []);
 
+  console.log('in the app', questions)
+
 
   return (
     <main className="App">
@@ -35,16 +34,8 @@ export default function App() {
       { user ?
         <>
           <Switch>
-            <Route path="/orders/new">
-              <NewOrderPage user={user} setUser={setUser} />
-            </Route>
-
-            <Route path="/orders">
-              <OrderHistoryPage />
-            </Route>
-
             <Route path="/home">
-              <HomePage questions={questions}/>
+              <HomePage questions={questions} setQuestions={setQuestions} />
             </Route> 
             
             <Route path="/languages">
@@ -52,7 +43,7 @@ export default function App() {
             </Route> 
             
             <Route path="/soft-skills">
-              <SoftSkillsPage />
+              <SoftSkillsPage questions={questions}/>
             </Route> 
             
             <Route path="/companys">
