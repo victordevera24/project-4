@@ -18,7 +18,7 @@ function NavBar({user, setUser}) {
                     <h4><Link to='/create'>Add Question</Link></h4>
                     <h4><Link to='/languages'>Languages</Link></h4>
                     <h4><Link to='/soft-skills'>Soft Skills</Link></h4>
-                    <h4><Link to='/companys'>Companys</Link></h4>
+                    <h4><Link to='/companies'>Companys</Link></h4>
                     <h4><Link onClick={handleLogOut}>Sign Out</Link></h4>
                 </>
                 :

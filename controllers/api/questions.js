@@ -2,12 +2,13 @@ const Question = require('../../models/question');
 
 module.exports = {
     create,
-    index
+    index,
 }
 
 async function create(req, res){
     try {
         req.body.user = req.user._id
+        req.body.company = req.body.company.toLowerCase()
         const quest = Question.create(req.body);
         res.json(quest)
     } catch (err) {

@@ -7,7 +7,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage'
 import LanguagesPage from '../LanguagesPage/LanguagesPage'
 import SoftSkillsPage from '../SoftSkillsPage/SoftSkillsPage'
-import CompanysPage from '../CompanysPage/CompanysPage'
+import CompaniesPage from '../CompaniesPage/CompaniesPage'
 import CreatePage from '../CreatePage/CreatePage'
 import QuestionDetail from '../../components/QuestionDetail/QuestionDetail'
 import * as questionsAPI from '../../utilities/questions-api'
@@ -24,9 +24,6 @@ export default function App() {
     }
       getQuestions()
   }, []);
-
-  console.log('in the app', questions)
-
 
   return (
     <main className="App">
@@ -46,8 +43,8 @@ export default function App() {
               <SoftSkillsPage questions={questions}/>
             </Route> 
             
-            <Route path="/companys">
-              <CompanysPage />
+            <Route path="/companies">
+              <CompaniesPage questions={questions}/>
             </Route> 
 
             <Route path="/create">
@@ -55,7 +52,7 @@ export default function App() {
             </Route> 
 
             <Route path="/question/:id">
-              <QuestionDetail questions={questions}/>
+              <QuestionDetail questions={questions} setQuestions={setQuestions}/>
             </Route> 
             
             <Redirect to="/home" />

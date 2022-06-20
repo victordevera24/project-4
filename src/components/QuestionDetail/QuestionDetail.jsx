@@ -1,13 +1,12 @@
-import {useParams, useHistory} from 'react-router-dom';
-import {useState} from 'react';
+import {useParams} from 'react-router-dom';
+import {useState, useEffect} from 'react';
 import {addComment} from '../../utilities/comments-api'
+import * as commentsAPI from '../../utilities/comments-api'
 
-export default function QuestionDetail({questions}){
-    const history = useHistory();
+export default function QuestionDetail({questions, setQuestions}){
+
     const {id} = useParams();
     let question = questions.find(x=>x._id === id);
-    let question_id = id.id
-    console.log(id)
     const [comment, setComment] = useState({
         user: '',
         question: id,
@@ -15,15 +14,30 @@ export default function QuestionDetail({questions}){
         likes: 0
     }) 
 
+    const [comments, setComments] = useState([])
+
+    
+    useEffect(function(){ 
+        async function getComments() {
+            const comments = await commentsAPI.getAll()
+            setComments(comments)
+        }
+        getComments()
+    }, [])
+
     function handleChange(evt){
         setComment({...comment, [evt.target.name]: evt.target.value });
     }
 
     async function handleSubmit(evt){
         evt.preventDefault();
-        addComment(comment)
+        addComment(comment);
     }
 
+    let questionComments = comments.filter(x=>x.question===id)
+    // console.log('here are all the quesiontsssfsdafdsf:. ', questions)
+    // console.log('here is question: ', question)
+    
     return(
         <div className='container'>
             <div>
@@ -38,6 +52,11 @@ export default function QuestionDetail({questions}){
                 </div>
                 <button className='btn btn-lg btn-info'type='submit'>Add Comment</button>
             </form>
+            </div>
+            <div>
+                {questionComments.map((c, idx)=> (
+                    <p>{c.comment}</p>
+                ))}
             </div>
         </div>
     )
