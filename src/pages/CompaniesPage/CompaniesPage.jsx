@@ -31,6 +31,7 @@ export default function CompanysPage({questions}) {
                         <p>{q.question}</p>
                     </Link>
                 ))}
+                <hr/>
             </div>
         </div>
     )

@@ -12,6 +12,7 @@ export default function SoftSkillsPage({questions}) {
                     <p>{q.question}</p>
                 </Link>
             ))}
+            <hr/>
         </div>
     )
 }

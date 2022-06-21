@@ -15,6 +15,7 @@ export default function javaScriptIndex({questions}){
                         <p>{q.question}</p>
                     </Link>
                 ))}
+                <hr/>
             </div>
         </>
     )

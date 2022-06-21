@@ -16,6 +16,7 @@ export default function mongoDbIndex({questions}){
                         <p>{q.question}</p>
                     </Link>
                 ))}
+                <hr/>
             </div>
         </>
     )
