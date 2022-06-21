@@ -18,7 +18,7 @@ export default function HomePage({questions, setQuestions}) {
 
     return (
         <div  class='container'>
-            <h1>Home Page you are on</h1>
+            <h3>Recent Questions</h3>
             <QuestionIndex questions={questions}/>
         </div>
     )

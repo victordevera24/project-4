@@ -1,13 +1,16 @@
 import React from 'react';
-// import {useState} from 'react';
+import { Link } from 'react-router-dom';
+
 
 export default function SoftSkillsPage({questions}) {
     let softSkillQuestions = questions.filter(x=>x.language=== "softSkill")
     return (
         <div  class='container'>
-            <h1>Soft skills Page you are on</h1>
+            <h3>Soft Skill Questions</h3>
             {softSkillQuestions.map((q, idx) => (
-                <p>{q.question}</p>
+                <Link to={'/question/'+q._id}>
+                    <p>{q.question}</p>
+                </Link>
             ))}
         </div>
     )

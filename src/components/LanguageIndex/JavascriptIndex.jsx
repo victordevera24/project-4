@@ -1,4 +1,5 @@
 import LanguageBar from '../../components/LanguageBar/LanguageBar'
+import { Link } from 'react-router-dom';
 
 
 
@@ -8,9 +9,11 @@ export default function javaScriptIndex({questions}){
         <>
             <div class='container'>
                 <LanguageBar/>
-                <h1>hello js</h1>
+                <h1>JavaScript Questions</h1>
                 {javaScriptQuestions.map((q)=>(
-                    <p>{q.question}</p>
+                    <Link to={'/question/'+q._id}>
+                        <p>{q.question}</p>
+                    </Link>
                 ))}
             </div>
         </>

@@ -6,7 +6,7 @@ export default function LanguagesPage() {
     return (
         <div  class='container'>
             <LanguageBar/>
-            <h1>Languages Page you are on</h1>
+            <h1></h1>
         </div>
     )
 }

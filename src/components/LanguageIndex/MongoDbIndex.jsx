@@ -1,4 +1,5 @@
 import LanguageBar from '../../components/LanguageBar/LanguageBar'
+import { Link } from 'react-router-dom';
 
 
 
@@ -9,9 +10,11 @@ export default function mongoDbIndex({questions}){
         <>
             <div class='container'>
                 <LanguageBar/>
-                <h1>hello mongo db</h1>
+                <h1>MongoDB Questions</h1>
                 {mongoDbQuestions.map((q)=> (
-                    <p>{q.question}</p>
+                    <Link to={'/question/'+q._id}>
+                        <p>{q.question}</p>
+                    </Link>
                 ))}
             </div>
         </>

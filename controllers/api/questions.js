@@ -18,7 +18,7 @@ async function create(req, res){
 }
 
 async function index(req,res) {
-    const quests = await Question.find({}).sort('createAt');
+    const quests = await Question.find({}).sort({createdAt: 'asc', test: -1});
     res.json(quests)
 }
 

@@ -18,7 +18,7 @@ export default function CompanysPage({questions}) {
 
     return (
         <div  class='container'>
-            <h1>Companys Page you are on</h1>
+            <h3>Search by company</h3>
             <form autoComplete='off'>
                 <div className='form-group'>
                     <label>Company:</label>

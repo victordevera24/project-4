@@ -24,7 +24,7 @@ export default function CreatePage() {
     }
     return (
         <div className='container'>
-            <h1>create page you are on</h1>
+            <h3>Create Question</h3>
             <form onSubmit={handleSubmit} autoComplete='off'>
                 <div className='form-group'>
                     <label>Question:</label>

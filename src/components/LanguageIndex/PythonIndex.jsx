@@ -1,4 +1,6 @@
 import LanguageBar from '../../components/LanguageBar/LanguageBar'
+import { Link } from 'react-router-dom';
+
 
 export default function pythonIndex({questions}){
     let pythonQuestions = questions.filter(x=>x.language==='python')
@@ -6,9 +8,11 @@ export default function pythonIndex({questions}){
         <>
             <div class='container'>
                 <LanguageBar/>
-                <h1>hello python</h1>
+                <h1>Python Questions</h1>
                 {pythonQuestions.map((q)=> (
-                    <p>{q.question}</p>
+                    <Link to={'/question/'+q._id}>
+                        <p>{q.question}</p>
+                    </Link>
                 ))}
             </div>
         </>
