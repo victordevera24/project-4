@@ -4,12 +4,12 @@ An app where software engineers can share their interview questions to help othe
 
 ## Link to deployed app
 ---
-[TEAM UP](enterlinkhere.com)
+[TEAM UP](https://team-up-project-4.herokuapp.com/home)
 
 ## Screenshots
 ---
-![Home page](/image/image.jpg)
-![Question detail](/image/image.jpg)
+![Home page](/images/homePage.jpeg)
+![Question detail](/images/questionDetail.jpeg)
 
 ## Technologies used
 ---

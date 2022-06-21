@@ -29,9 +29,9 @@ export default function CompanysPage({questions}) {
                 {questionsByCompany.map((q, idx) => (
                     <Link to={'/question/'+q._id}>
                         <p>{q.question}</p>
+                        <hr/>
                     </Link>
                 ))}
-                <hr/>
             </div>
         </div>
     )

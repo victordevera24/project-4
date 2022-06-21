@@ -13,10 +13,11 @@ export default function MySqlIndex({questions}){
                     <Link to={'/question/'+q._id}>
 
                     <p>{q.question}</p>
+                    <hr/>
                     </Link>
 
                 ))}
-                <hr/>
+               
             </div>
 
         </>

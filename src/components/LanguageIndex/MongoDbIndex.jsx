@@ -14,9 +14,10 @@ export default function mongoDbIndex({questions}){
                 {mongoDbQuestions.map((q)=> (
                     <Link to={'/question/'+q._id}>
                         <p>{q.question}</p>
+                        <hr/>
                     </Link>
                 ))}
-                <hr/>
+               
             </div>
         </>
     )

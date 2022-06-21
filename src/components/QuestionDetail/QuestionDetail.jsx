@@ -43,6 +43,7 @@ export default function QuestionDetail(){
         const question = await addComment(comment);
         console.log('after handle submit', question)
         setQuest(question)
+        setComment({comment: ''})
     }
 
     return(

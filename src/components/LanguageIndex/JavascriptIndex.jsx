@@ -13,9 +13,10 @@ export default function javaScriptIndex({questions}){
                 {javaScriptQuestions.map((q)=>(
                     <Link to={'/question/'+q._id}>
                         <p>{q.question}</p>
+                        <hr/>
                     </Link>
                 ))}
-                <hr/>
+                
             </div>
         </>
     )

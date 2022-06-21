@@ -10,9 +10,10 @@ export default function SoftSkillsPage({questions}) {
             {softSkillQuestions.map((q, idx) => (
                 <Link to={'/question/'+q._id}>
                     <p>{q.question}</p>
+                    <hr/>
                 </Link>
             ))}
-            <hr/>
+            
         </div>
     )
 }
