@@ -12,7 +12,7 @@ export default function CommentCard({comment}){
             setUser(user)
         }
         getUser()
-    }, [])
+    }, [comment.user])
 
     return(
         <>

@@ -23,7 +23,7 @@ export default function QuestionDetail(){
             setQuest(question)
         }
             getQuestion()
-      }, []);
+      }, [id]);
     
 
     const [comment, setComment] = useState({

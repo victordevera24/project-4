@@ -15,7 +15,7 @@ export default function QuestionCard({question, index}){
             setUser(user)
         }
         getUser()
-    }, [])
+    }, [question.user])
 
     return(
         <>
