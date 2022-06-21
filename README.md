@@ -8,8 +8,8 @@ An app where software engineers can share their interview questions to help othe
 
 ## Screenshots
 ---
-![Home page](/images/homePage.jpeg)
-![Question detail](/images/questionDetail.jpeg)
+![Home page](/images/homePage1.jpeg)
+![Question detail](/images/questionDetail1.jpeg)
 
 ## Technologies used
 ---
