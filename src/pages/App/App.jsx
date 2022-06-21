@@ -21,13 +21,13 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [questions, setQuestions]= useState([]);
 
-  // useEffect(function() {
-  //   async function getQuestions() {
-  //     const quests = await questionsAPI.getAll();
-  //     setQuestions(quests)
-  //   }
-  //     getQuestions()
-  // }, []);
+  useEffect(function() {
+    async function getQuestions() {
+      const quests = await questionsAPI.getAll();
+      setQuestions(quests)
+    }
+      getQuestions()
+  }, []);
 
   return (
     <main className="App">
