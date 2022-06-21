@@ -5,7 +5,8 @@ const User = require('../../models/user');
 module.exports = {
   create,
   login,
-  checkToken
+  checkToken,
+  findUser
 };
 
 async function login(req, res) {
@@ -38,7 +39,6 @@ async function create(req, res) {
 
 function checkToken(req, res) {
   // req.user will always be there for you when a token is sent
-  console.log('req.user', req.user);
   res.json(req.exp);
 }
 
@@ -51,4 +51,9 @@ function createJWT(user) {
     process.env.SECRET,
     { expiresIn: '24h' }
   );
+}
+
+async function findUser(req, res){
+  let user = await User.findOne({_id:req.params.id})
+  res.json(user)
 }

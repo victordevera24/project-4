@@ -1,16 +1,13 @@
-import { Link } from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import './QuestionCard.css'
 import * as userAPI from '../../utilities/users-api'
 
-
-export default function QuestionCard({question, index}){
+export default function CommentCard({comment}){
 
     const [user, setUser] = useState([])
     
     useEffect(function(){
         async function getUser(){
-            const user = await userAPI.getUser(question.user)
+            const user = await userAPI.getUser(comment.user)
             console.log('in use effect get user', user)
             setUser(user)
         }
@@ -20,12 +17,11 @@ export default function QuestionCard({question, index}){
     return(
         <>
             <div>
-                <Link to={'/question/'+question._id}>
-                    <p>{question.question}</p>
-                </Link> 
-                <p>-{user.name} {question.createdAt}</p>
+                <p>{comment.comment}</p>
+                <p>-{user.name} {comment.createdAt}</p>
             </div>
             <hr/>
         </>
     )
+
 }

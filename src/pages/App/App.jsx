@@ -11,6 +11,10 @@ import CompaniesPage from '../CompaniesPage/CompaniesPage'
 import CreatePage from '../CreatePage/CreatePage'
 import QuestionDetail from '../../components/QuestionDetail/QuestionDetail'
 import * as questionsAPI from '../../utilities/questions-api'
+import JavaScriptIndex from '../../components/LanguageIndex/JavascriptIndex'
+import PythonIndex from '../../components/LanguageIndex/PythonIndex'
+import MySqlIndex from '../../components/LanguageIndex/MySqlIndex'
+import MongoDbIndex from '../../components/LanguageIndex/MongoDbIndex'
 
 
 export default function App() {
@@ -52,8 +56,24 @@ export default function App() {
             </Route> 
 
             <Route path="/question/:id">
-              <QuestionDetail questions={questions} setQuestions={setQuestions}/>
+              <QuestionDetail/>
             </Route> 
+
+            <Route path="/javascript">
+              <JavaScriptIndex questions={questions}/>
+            </Route>
+
+            <Route path="/python">
+              <PythonIndex questions={questions}/>
+            </Route>
+
+            <Route path="/mysql">
+              <MySqlIndex questions={questions}/>
+            </Route>
+
+            <Route path="/mongodb">
+              <MongoDbIndex questions={questions}/>
+            </Route>
             
             <Redirect to="/home" />
           </Switch>

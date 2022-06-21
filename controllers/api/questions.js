@@ -3,6 +3,7 @@ const Question = require('../../models/question');
 module.exports = {
     create,
     index,
+    findQuestion
 }
 
 async function create(req, res){
@@ -19,4 +20,13 @@ async function create(req, res){
 async function index(req,res) {
     const quests = await Question.find({}).sort('createAt');
     res.json(quests)
+}
+
+async function findQuestion(req,res){
+    console.log('in find question', req.params.id)
+    await Question.findOne({_id:req.params.id})
+        .populate('comments').exec(function(error, question){
+            console.log('in controller. this is question', question)
+            res.json(question)
+        })
 }

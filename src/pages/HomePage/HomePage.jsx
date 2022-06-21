@@ -2,7 +2,7 @@ import React from 'react';
 import QuestionIndex from '../../components/QuestionIndex/QuestionIndex'
 import * as questionsAPI from '../../utilities/questions-api'
 import { useEffect } from 'react';
-
+import './HomePage.css';
 
 
 

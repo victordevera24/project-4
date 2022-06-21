@@ -11,3 +11,8 @@ export function getAll() {
     console.log('get all question api')
     return sendRequest(BASE_URL);
 }
+
+export function getQuestion(id){
+    console.log('in api', id)
+    return sendRequest(`${BASE_URL}/find/${id}`)
+}

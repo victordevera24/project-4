@@ -7,5 +7,7 @@ router.get('/', ensureLoggedIn, questionsCtrl.index);
 
 router.post('/create', ensureLoggedIn, questionsCtrl.create);
 
+router.get('/find/:id', ensureLoggedIn, questionsCtrl.findQuestion)
+
 
 module.exports = router;

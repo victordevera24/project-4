@@ -14,7 +14,7 @@ export default function CompanysPage({questions}) {
     }
 
 
-    let questionsByCompany = questions.filter(x=>x.company === company.company)
+    let questionsByCompany = questions.filter(x=>x.company === company.company.toLowerCase())
 
     return (
         <div  class='container'>

@@ -1,12 +1,31 @@
 import {useParams} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 import {addComment} from '../../utilities/comments-api'
-import * as commentsAPI from '../../utilities/comments-api'
+import Comments from '../Comments/Comments'
+import * as questionsAPI from '../../utilities/questions-api'
 
-export default function QuestionDetail({questions, setQuestions}){
 
+export default function QuestionDetail(){
     const {id} = useParams();
-    let question = questions.find(x=>x._id === id);
+    console.log('before use effect')
+    const [quest, setQuest] = useState({
+        comments: [],
+        user: '',
+        question: '',
+        language: '',
+        company: '',
+    })
+
+    useEffect(function() {
+        async function getQuestion() {
+            const question = await questionsAPI.getQuestion(id);
+            console.log('in use effect', question);
+            setQuest(question)
+        }
+            getQuestion()
+      }, []);
+    
+
     const [comment, setComment] = useState({
         user: '',
         question: id,
@@ -14,16 +33,6 @@ export default function QuestionDetail({questions, setQuestions}){
         likes: 0
     }) 
 
-    const [comments, setComments] = useState([])
-
-    
-    useEffect(function(){ 
-        async function getComments() {
-            const comments = await commentsAPI.getAll()
-            setComments(comments)
-        }
-        getComments()
-    }, [])
 
     function handleChange(evt){
         setComment({...comment, [evt.target.name]: evt.target.value });
@@ -31,18 +40,16 @@ export default function QuestionDetail({questions, setQuestions}){
 
     async function handleSubmit(evt){
         evt.preventDefault();
-        addComment(comment);
+        const question = await addComment(comment);
+        console.log('after handle submit', question)
+        setQuest(question)
     }
 
-    let questionComments = comments.filter(x=>x.question===id)
-    // console.log('here are all the quesiontsssfsdafdsf:. ', questions)
-    // console.log('here is question: ', question)
-    
     return(
         <div className='container'>
             <div>
                 <h3>question detail page</h3>
-                <p>{question.question}</p>
+                <p>{quest.question}</p>
             </div>
             <div>
             <form onSubmit={handleSubmit} autoComplete='off'>
@@ -54,9 +61,7 @@ export default function QuestionDetail({questions, setQuestions}){
             </form>
             </div>
             <div>
-                {questionComments.map((c, idx)=> (
-                    <p>{c.comment}</p>
-                ))}
+                <Comments comments={quest.comments} id={id}/>
             </div>
         </div>
     )
