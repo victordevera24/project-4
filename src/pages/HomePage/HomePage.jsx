@@ -8,13 +8,13 @@ import './HomePage.css';
 
 export default function HomePage({questions, setQuestions}) {
 
-    useEffect(function() {
-      async function getQuestions() {
-        const quests = await questionsAPI.getAll();
-        setQuestions(quests)
-      }
-        getQuestions()
-    }, []);
+    // useEffect(function() {
+    //   async function getQuestions() {
+    //     const quests = await questionsAPI.getAll();
+    //     setQuestions(quests)
+    //   }
+    //     getQuestions()
+    // }, []);
 
     return (
         <div  class='container'>
